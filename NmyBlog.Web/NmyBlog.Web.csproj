@@ -17,4 +17,10 @@
     <ProjectReference Include="..\NmyBlog.DAL\NmyBlog.DAL.csproj" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <Folder Include="Areas\Adnn1n\Data\" />
+    <Folder Include="Areas\Adnn1n\Models\" />
+  </ItemGroup>
+
 </Project>
