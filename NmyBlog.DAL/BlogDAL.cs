@@ -1,26 +1,23 @@
-﻿using Dapper;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Dapper;
 using NmyBlog.Model;
 
 namespace NmyBlog.DAL
 {
-    /// <summary>
-    /// 分类表的数据操作类
-    /// </summary>
-    public class CategoryDAL
+    public class BlogDAL
     {
         /// <summary>
         /// INSEERT
         /// </summary>
         /// <returns></returns>
-        public int Insert(Category ca)
+        public int Insert(Blog bo)
         {
             using (var connection = ConnectionFactory.GetOpenConnection())
             {
-                int resid = connection.Query<int>(@"INSERT INTO Category(CaName,Bh,Pbh,Remark) values(@CaName,@Bh,@Pbh,@Remark);SELECT @@IDENTITY;", ca).FirstOrDefault();
+                int resid = connection.Query<int>(@"INSERT INTO Blog(Title,Body,Body_md,VisitNum,CaBh,CaName,Remark,Sort) values(@Title,@Body,@Body_md,@VisitNum,@CaBh,@CaName,@Remark,@Sort);SELECT @@IDENTITY;", bo).FirstOrDefault();
                 return resid;
             }
         }
@@ -33,12 +30,12 @@ namespace NmyBlog.DAL
         {
             using (var connection = ConnectionFactory.GetOpenConnection())
             {
-               int res=  connection.Execute(@"DELETE FROM Category WHERE Id=@Id", new {Id = id});
-               if (res>0)
-               {
-                   return true;
-               }
-               return false;
+                int res = connection.Execute(@"DELETE FROM Blog WHERE Id=@Id", new { Id = id });
+                if (res > 0)
+                {
+                    return true;
+                }
+                return false;
             }
         }
 
@@ -47,17 +44,17 @@ namespace NmyBlog.DAL
         /// </summary>
         /// <param name="cond"></param>
         /// <returns></returns>
-        public List<Category> GetList(string cond)
+        public List<Blog> GetList(string cond)
         {
             using (var connection = ConnectionFactory.GetOpenConnection())
             {
-                string sql = "SELECT * FROM Category";
+                string sql = "SELECT * FROM Blog";
                 if (!string.IsNullOrEmpty(cond))
                 {
                     sql += $" WHERE {cond}";
                 }
 
-                var list = connection.Query<Category>(sql).ToList();
+                var list = connection.Query<Blog>(sql).ToList();
                 return list;
             }
         }
@@ -67,43 +64,30 @@ namespace NmyBlog.DAL
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public Category GetModel(int id)
+        public Blog GetModel(int id)
         {
             using (var connection = ConnectionFactory.GetOpenConnection())
             {
-              var m =  connection.Query<Category>(@"SELECT * FROM Category WHERE Id=@Id",new {Id=id}).FirstOrDefault();
-
-              return m;
-            }
-        }
-
-        /// <summary>
-        /// Get Model By CaBh
-        /// </summary>
-        /// <param name=""></param>
-        /// <returns></returns>
-        public Category GetModelByBh(string cabh)
-        {
-            using (var connection = ConnectionFactory.GetOpenConnection())
-            {
-                var m = connection.Query<Category>(@"SELECT * FROM Category WHERE bh=@bh", new { bh = cabh }).FirstOrDefault();
+                var m = connection.Query<Blog>(@"SELECT * FROM Blog WHERE Id=@Id", new { Id = id }).FirstOrDefault();
 
                 return m;
             }
         }
+
+       
 
         /// <summary>
         /// UPDATE
         /// </summary>
         /// <param name="ca"></param>
         /// <returns></returns>
-        public bool Update(Category ca)
+        public bool Update(Blog bo)
         {
             using (var connection = ConnectionFactory.GetOpenConnection())
             {
-                int res = connection.Execute(@"UPDATE Category SET CaName=@CaName,Bh=@Bh,Pbh=@Pbh,Remark=@Remark WHERE Id=@Id",ca);
+                int res = connection.Execute(@"UPDATE Blog SET Title=@Title,Body=@Body,Body_md=@Body_md,VisitNum=@VisitNum,CaBh=@CaBh,CaName=@CaName,Remark=@Remark,Sort=@Sort WHERE Id=@Id", bo);
 
-                if (res>0)
+                if (res > 0)
                 {
                     return true;
                 }
@@ -111,8 +95,5 @@ namespace NmyBlog.DAL
                 return false;
             }
         }
-
-
-
     }
 }
