@@ -3,68 +3,39 @@
     Layout = null;
 }
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE HTML>
+<html>
 <head>
+    <title>后台登录</title>
+    <!-- Custom Theme files -->
+    <link href="~/css/login_style.css" rel="stylesheet" />
+    <!-- Custom Theme files -->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>欢迎登录后台管理系统</title>
-    <link href="/adminstyle/css/style.css" rel="stylesheet" type="text/css" />
-    <script language="JavaScript" src="/adminstyle/js/jquery.js"></script>
-    <script src="/adminstyle/js/cloud.js" type="text/javascript"></script>
-
-    <script language="javascript">
-        $(function () {
-            $('.loginbox').css({ 'position': 'absolute', 'left': ($(window).width() - 692) / 2 });
-            $(window).resize(function () {
-                $('.loginbox').css({ 'position': 'absolute', 'left': ($(window).width() - 692) / 2 });
-            })
-        });
-    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 </head>
-
-<body style="background-color:#1c77ac; background-image:url(/adminstyle/images/light.png); background-repeat:no-repeat; background-position:center top; overflow:hidden;">
-
-
-
-    <div id="mainBody">
-        <div id="cloud1" class="cloud"></div>
-        <div id="cloud2" class="cloud"></div>
-    </div>
-
-
-    <div class="logintop">
-        <span>欢迎登录后台管理界面平台</span>
-        <ul>
-            <li><a href="#">回首页</a></li>
-            <li><a href="#">帮助</a></li>
-            <li><a href="#">关于</a></li>
-        </ul>
-    </div>
-
-    <div class="loginbody">
-
-        <span class="systemlogo"></span>
-
-        <div class="loginbox">
-
-            <ul>
-                <li><input name="" type="text" class="loginuser" value="admin" onclick="JavaScript:this.value=''" /></li>
-                <li><input name="" type="text" class="loginpwd" value="密码" onclick="JavaScript:this.value=''" /></li>
-                <li><input name="" type="button" class="loginbtn" value="登录" onclick="javascript:window.location='main.html'" /><label><input name="" type="checkbox" value="" checked="checked" />记住密码</label><label><a href="#">忘记密码？</a></label></li>
-            </ul>
-
-
+<body>
+    <div class="login">
+        <div class="login-top">
+            <h1>Admin Login</h1>
+            <form>
+                <input type="text" value="User Id" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'User Id';}" />
+                <input type="password" value="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'password';}" />
+            </form>
+            <div class="forgot">
+                <a href="#">forgot Password</a>
+                <input type="submit" value="Login" />
+            </div>
         </div>
-
+        <div class="login-bottom">
+            <h3>New User &nbsp;<a href="#">Register</a>&nbsp Here</h3>
+        </div>
     </div>
-
-
-
-    <div class="loginbm">版权所有  2013  <a href="http://www.uimaker.com">uimaker.com</a>  仅供学习交流，勿用于任何商业用途</div>
+    <div class="copyright">
+        <p>Copyright &copy; 2019.<a href="http://weqan.cn">Weqan.cn</a></p>
+    </div>
 
 
 </body>
-
 </html>
-
