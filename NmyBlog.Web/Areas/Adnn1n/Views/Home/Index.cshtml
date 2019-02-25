@@ -3,20 +3,152 @@
     Layout = null;
 }
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="zh">
+
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="keywords" content="nmyuan" />
+    <meta name="description" content="nmyuan" />
+    <meta name="author" content="weqan" />
+    <link rel="icon" href="~/favicon.ico" type="image/png" />
     <title>后台管理 - 纳米源</title>
+
+    <link href="~/css/icons.css" rel="stylesheet" />
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/style.css" rel="stylesheet" />
+    <link href="~/css/responsive.css" rel="stylesheet" />
+
+    <!--js实现全屏-->
+    <script>
+        // 计算页面的实际高度，iframe自适应会用到
+        function calcPageHeight(doc) {
+            var cHeight = Math.max(doc.body.clientHeight, doc.documentElement.clientHeight)
+            var sHeight = Math.max(doc.body.scrollHeight, doc.documentElement.scrollHeight)
+            var height = Math.max(cHeight, sHeight)
+            return height
+        }
+        //根据ID获取iframe对象
+        var ifr = document.getElementById('rightFrame')
+        ifr.onload = function () {
+            //解决打开高度太高的页面后再打开高度较小页面滚动条不收缩
+            ifr.style.height = '0px';
+            var iDoc = ifr.contentDocument || ifr.document
+            var height = calcPageHeight(iDoc)
+            if (height < 850) {
+                height = 850;
+            }
+            ifr.style.height = height + 'px'
+        }
+    </script>
+
 </head>
-<frameset rows="88,*" cols="*" frameborder="no" border="0" framespacing="0">
-    <frame src="/Adnn1n/Home/Top" name="topFrame" scrolling="No" noresize="noresize" id="topFrame" title="topFrame" />
-    <frameset cols="187,*" frameborder="no" border="0" framespacing="0">
-        <frame src="/Adnn1n/Home/Left" name="leftFrame" scrolling="No" noresize="noresize" id="leftFrame" title="leftFrame" />
-        <frame src="/Adnn1n/Home/Welcome" name="rightFrame" id="rightFrame" title="rightFrame" />
-    </frameset>
-</frameset>
-<noframes><body>
-    </body></noframes>
+
+<body class="sticky-header">
+
+
+    <!--Start left side Menu-->
+    <div class="left-side sticky-left-side">
+
+        <!--logo-->
+        <div class="logo">
+            <a href="#"><img src="#" alt="" /></a>
+        </div>
+
+        <div class="logo-icon text-center">
+            <a href="#"><img src="#" alt="" /></a>
+        </div>
+        <!--logo-->
+
+        <div class="left-side-inner">
+            <!--Sidebar nav-->
+            <ul class="nav nav-pills nav-stacked custom-nav">
+
+                <li class="menu-list nav-active">
+                    <a><i class="icon-home"></i> <span> 博客管理 </span></a>
+                    <ul class="sub-menu-list">
+                        <li class="active"><a href="http://baidu.com" target="rightFrame"> 分类管理 </a></li>
+                        <li><a href="http://sina.com" target="rightFrame"> 文章管理 </a></li>
+                    </ul>
+                </li>
+
+
+                <li class="menu-list">
+                    <a href="#"><i class="icon-lock"></i> <span> 用户管理 </span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="/Adnn1n/Login" target="rightFrame"> 管理员管理 </a></li>
+                        <li><a href="http://qq.com" target="rightFrame"> 权限管理 </a></li>
+                    </ul>
+                </li>
+
+            </ul>
+            <!--End sidebar nav-->
+
+        </div>
+    </div>
+    <!--End left side menu-->
+    <!-- main content start-->
+    <div class="main-content">
+
+        <!-- header section start-->
+        <div class="header-section">
+
+            <a class="toggle-btn"><i class="fa fa-bars"></i></a>
+
+            <form class="searchform">
+                <input type="text" class="form-control" name="keyword" placeholder="Search here..." />
+            </form>
+
+            <!--notification menu start -->
+            <div class="menu-right">
+                <ul class="notification-menu">
+
+                    <li>
+                        <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            Hugo
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
+                            <li> <a href="/Adnn1n/Login"> <i class="fa fa-lock"></i> Logout </a> </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+            <!--notification menu end -->
+
+        </div>
+        <!-- header section end-->
+        <!--body wrapper start-->
+        <div class="wrapper">
+
+            <iframe id="rightFrame" name="rightFrame" frameborder="0" scrolling="no" src="http://nmyuan.com" style="min-height:600px;width:100%;height:100%;"></iframe>
+
+
+
+
+        </div>
+        <!-- End Wrapper-->
+        <!--Start  Footer -->
+        <footer class="footer-main">Copyright &copy; 2019.Weqan</footer>
+        <!--End footer -->
+
+    </div>
+    <!--End main content -->
+    <!--Begin core plugin -->
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/plugins/moment.js"></script>
+    <script src="~/js/jquery.slimscroll.js "></script>
+    <script src="~/js/jquery.nicescroll.js"></script>
+    <script src="~/js/functions.js"></script>
+    <!-- End core plugin -->
+
+
+
+</body>
+
 </html>
+
 

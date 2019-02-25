@@ -3,39 +3,88 @@
     Layout = null;
 }
 
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="zh">
+
 <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="nmyuan">
+    <meta name="description" content="nmyuan">
+    <meta name="author" content="weqan">
+    <link rel="icon" href="~/favicon.ico" type="image/png">
     <title>后台登录 - 纳米源</title>
-    <!-- Custom Theme files -->
-    <link href="~/css/login_style.css" rel="stylesheet" />
-    <!-- Custom Theme files -->
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <link href="~/css/icons.css" rel="stylesheet">
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/css/style.css" rel="stylesheet">
+    <link href="~/css/responsive.css" rel="stylesheet">
+
 
 </head>
-<body>
-    <div class="login">
-        <div class="login-top">
-            <h1>NmyBlog Login</h1>
-            <form>
-                <input type="text" value="User Id" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'User Id';}" />
-                <input type="password" value="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'password';}" />
-            </form>
-            <div class="forgot">
-                <a href="#">forgot Password</a>
-                <input type="submit" value="Login" />
+
+<body class="sticky-header">
+
+
+    <!--Start login Section-->
+    <section class="login-section">
+        <div class="container">
+            <div class="row">
+                <div class="login-wrapper">
+                    <div class="login-inner">
+
+                        <h2 class="header-title text-center">NmyBlog Login</h2>
+
+                        <form>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Username">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Password">
+                            </div>
+
+                            <div class="form-group">
+                                <div class="pull-left">
+                                    <div class="checkbox primary">
+                                        <input id="checkbox-2" type="checkbox">
+                                        <label for="checkbox-2">Remember me</label>
+                                    </div>
+                                </div>
+
+                                <div class="pull-right">
+                                    <a href="reset-password.html" class="a-link">
+                                        <i class="fa fa-unlock-alt"></i> Forgot password?
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="submit" value="Login" class="btn btn-primary btn-block">
+                            </div>
+
+                            <div class="form-group text-center">
+                                Don't have an account?  <a href="registration.html">Sign Up </a>
+                            </div>
+
+                        </form>
+
+                        <div class="copy-text">
+                            <p class="m-0">Copyright &copy; 2019.Weqan</p>
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
         </div>
-        <div class="login-bottom">
-            <h3>New User &nbsp;<a href="#">Register</a>&nbsp Here</h3>
-        </div>
-    </div>
-    <div class="copyright">
-        <p>Copyright &copy; 2019.<a href="http://weqan.cn">Weqan.cn</a></p>
-    </div>
-
+    </section>
+    <!--End login Section-->
+    <!--Begin core plugin -->
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <!-- End core plugin -->
 
 </body>
+
 </html>

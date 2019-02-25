@@ -21,6 +21,7 @@
   <ItemGroup>
     <Folder Include="Areas\Adnn1n\Data\" />
     <Folder Include="Areas\Adnn1n\Models\" />
+    <Folder Include="wwwroot\css\plugins\" />
   </ItemGroup>
 
 </Project>
