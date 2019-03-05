@@ -63,6 +63,27 @@ namespace NmyBlog.DAL
         }
 
         /// <summary>
+        /// GET TOP LIST
+        /// </summary>
+        /// <param name="cond"></param>
+        /// <returns></returns>
+        public List<Category> GetTopList(int topnum, string cond)
+        {
+            using (var connection = ConnectionFactory.GetOpenConnection())
+            {
+                string sql = "SELECT TOP " + topnum + " * FROM Category";
+                if (!string.IsNullOrEmpty(cond))
+                {
+                    sql += $" WHERE {cond}";
+                }
+
+                var list = connection.Query<Category>(sql).ToList();
+                return list;
+            }
+        }
+
+
+        /// <summary>
         /// Get Model
         /// </summary>
         /// <param name="id"></param>

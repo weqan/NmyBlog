@@ -2,6 +2,7 @@
 @{
     Layout = null;
 }
+@model List<NmyBlog.Model.Blog>
 
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -66,8 +67,8 @@
                         </div>
                     </form>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a data-cont="纳米源" title="纳米源" href="#">首页</a></li>
-                        <li><a data-cont="我的笔记" title="我的笔记" href="#">我的笔记</a></li>
+                        <li><a data-cont="纳米源" title="纳米源" href="/Home">首页</a></li>
+                        <li><a data-cont="我的文章" title="我的文章" href="/List">我的文章</a></li>
                         <li><a data-cont="源码分享" title="源码分享" href="#">源码分享</a></li>
                         <li><a data-cont="资讯分享" title="资讯分享" href="#">资讯分享</a></li>
                     </ul>
@@ -104,96 +105,53 @@
                     </a>
                 </div>
 
-                <article class="excerpt-minic excerpt-minic-index">
-                    <h2>
-                        <span class="red">【推荐】</span><a target="_blank" href="#"
-                                                        title="用.NET core做一个独立博客网站（响应式模板）">用.NET core做一个独立博客网站（响应式模板）</a>
-                    </h2>
-                    <p class="note">
-                        用.NET core做一个独立博客网站（响应式模板），采用MSSQL。开发环境：SQL2012R2+VS2017。正式版功能修复和优化：1、favicon.ico图标后台上传。（解决要换图标时要连FTP或者开服务器的麻烦）
-                    </p>
-                </article>
+                @foreach (NmyBlog.Model.Blog mo in ViewBag.bomodel)
+                {
+                    <article class="excerpt-minic excerpt-minic-index">
+                        <h2>
+                            <span class="red">【推荐】</span><a target="_blank" href="#" title="@mo.Title">@mo.Title</a>
+                        </h2>
+                        <p class="note">
+                            @mo.Body
+                        </p>
+                    </article>
+                }
 
                 <div class="title">
                     <h3>最新发布</h3>
                     <div class="more">
-                        <a href="#" title="我的笔记">我的笔记</a>
-                        <a href="#" title="源码分享">源码分享</a>
-                        <a href="#" title="资讯分享">资讯分享</a>
+                        @foreach (NmyBlog.Model.Category ca in ViewBag.calist)
+                        {
+                            <a href="#" title="@ca.CaName">@ca.CaName</a>
+                        }
                     </div>
                 </div>
 
-                <!-- 1 -->
-                <article class="excerpt excerpt-1">
-                    <a class="focus" href="#" title="用.NET core做一个独立博客网站（响应式模板）" target="_blank">
-                        <img class="thumb"
-                             data-original="~/main/images/201610181739277776.jpg" src="~/main/images/201610181739277776.jpg"
-                             alt="用.NET core做一个独立博客网站（响应式模板）" style="display: inline;">
-                    </a>
-                    <header>
-                        <a class="cat" href="#" title=".NET core主题">.NET core主题<i></i></a>
-                        <h2>
-                            <a href="#" title="用.NET core做一个独立博客网站（响应式模板）" target="_blank">用.NET core做一个独立博客网站（响应式模板）</a>
-                        </h2>
-                    </header>
-                    <p class="meta">
-                        <time class="time"><i class="glyphicon glyphicon-time"></i> 2016-10-14</time>
-                        <span class="views"><i class="glyphicon glyphicon-eye-open"></i> 216</span>
-                        <a class="comment"
-                           href="##comment" title="评论" target="_blank"><i class="glyphicon glyphicon-comment"></i>4</a>
-                    </p>
-                    <p class="note">
-                        用.NET core做一个独立博客网站（响应式模板），采用MSSQL。开发环境：SQL2012R2+VS2017。正式版功能修复和优化：1、favicon.ico图标后台上传。（解决要换图标时要连FTP或者开服务器的麻烦）
-                    </p>
-                </article>
 
-                <!-- 2 -->
-                <article class="excerpt excerpt-1">
-                    <a class="focus" href="#" title="用.NET core做一个独立博客网站（响应式模板）" target="_blank">
-                        <img class="thumb"
-                             data-original="~/main/images/201610181739277776.jpg" src="~/main/images/201610181739277776.jpg"
-                             alt="用.NET core做一个独立博客网站（响应式模板）" style="display: inline;">
-                    </a>
-                    <header>
-                        <a class="cat" href="#" title=".NET core主题">.NET core主题<i></i></a>
-                        <h2>
-                            <a href="#" title="用.NET core做一个独立博客网站（响应式模板）" target="_blank">用.NET core做一个独立博客网站（响应式模板）</a>
-                        </h2>
-                    </header>
-                    <p class="meta">
-                        <time class="time"><i class="glyphicon glyphicon-time"></i> 2016-10-14</time>
-                        <span class="views"><i class="glyphicon glyphicon-eye-open"></i> 216</span>
-                        <a class="comment"
-                           href="##comment" title="评论" target="_blank"><i class="glyphicon glyphicon-comment"></i>4</a>
-                    </p>
-                    <p class="note">
-                        用.NET core做一个独立博客网站（响应式模板），采用MSSQL。开发环境：SQL2012R2+VS2017。正式版功能修复和优化：1、favicon.ico图标后台上传。（解决要换图标时要连FTP或者开服务器的麻烦）
-                    </p>
-                </article>
-
-                <!-- 3 -->
-                <article class="excerpt excerpt-1">
-                    <a class="focus" href="#" title="用.NET core做一个独立博客网站（响应式模板）" target="_blank">
-                        <img class="thumb"
-                             data-original="~/main/images/201610181739277776.jpg" src="~/main/images/201610181739277776.jpg"
-                             alt="用.NET core做一个独立博客网站（响应式模板）" style="display: inline;">
-                    </a>
-                    <header>
-                        <a class="cat" href="#" title=".NET core主题">.NET core主题<i></i></a>
-                        <h2>
-                            <a href="#" title="用.NET core做一个独立博客网站（响应式模板）" target="_blank">用.NET core做一个独立博客网站（响应式模板）</a>
-                        </h2>
-                    </header>
-                    <p class="meta">
-                        <time class="time"><i class="glyphicon glyphicon-time"></i> 2016-10-14</time>
-                        <span class="views"><i class="glyphicon glyphicon-eye-open"></i> 216</span>
-                        <a class="comment"
-                           href="##comment" title="评论" target="_blank"><i class="glyphicon glyphicon-comment"></i>4</a>
-                    </p>
-                    <p class="note">
-                        用.NET core做一个独立博客网站（响应式模板），采用MSSQL。开发环境：SQL2012R2+VS2017。正式版功能修复和优化：1、favicon.ico图标后台上传。（解决要换图标时要连FTP或者开服务器的麻烦）
-                    </p>
-                </article>
+                @foreach (var blog in Model)
+                {
+                    <!-- 1 -->
+                    <article class="excerpt excerpt-1">
+                        <a class="focus" href="#" title="@blog.Title" target="_blank">
+                            <img class="thumb"
+                                 data-original="~/main/images/201610181739277776.jpg" src="~/main/images/201610181739277776.jpg"
+                                 alt="@blog.Title" style="display: inline;">
+                        </a>
+                        <header>
+                            <a class="cat" href="#" title="@blog.CaName">@blog.CaName 主题<i></i></a>
+                            <h2>
+                                <a href="#" title="@blog.Title" target="_blank">@blog.Title</a>
+                            </h2>
+                        </header>
+                        <p class="meta">
+                            <time class="time"><i class="glyphicon glyphicon-time"></i> @blog.CreateDate</time>
+                            <span class="views"><i class="glyphicon glyphicon-eye-open"></i> @blog.VisitNum</span>
+                        </p>
+                        <p class="note">
+                            @blog.Body
+                        </p>
+                    </article>
+                }
 
 
             </div>
@@ -252,20 +210,23 @@
 
 
             <div class="widget widget_hot">
-                <h3>最新评论文章</h3>
+                <h3>猜你喜欢</h3>
                 <ul>
-                    <li>
-                        <a title="用.NET core做一个独立博客网站（响应式模板）" href="#">
-                            <span class="thumbnail">
-                                <img class="thumb" data-original="~/main/images/201610181739277776.jpg" src="~/main/images/201610181739277776.jpg"
-                                     alt="用.NET core做一个独立博客网站（响应式模板）" style="display: block;">
-                            </span><span class="text">用.NET core做一个独立博客网站（响应式模板）</span><span class="muted">
-                                <i class="glyphicon glyphicon-time"></i>
-                                2016-11-01
-                            </span><span class="muted"><i class="glyphicon glyphicon-eye-open"></i>88</span>
-                        </a>
-                    </li>
-
+                    @foreach (NmyBlog.Model.Blog bo in ViewBag.bolist)
+                    {
+                        <li>
+                            <a title="@bo.Title" href="#">
+                                <span class="thumbnail">
+                                    <img class="thumb" data-original="~/main/images/201610181739277776.jpg" src="~/main/images/201610181739277776.jpg"
+                                         alt="@bo.Title" style="display: block;">
+                                </span>
+                                <span class="text">@bo.Title</span>
+                                <span class="muted"><i class="glyphicon glyphicon-time"></i> @bo.CreateDate</span>
+                                <span class="muted"><i class="glyphicon glyphicon-eye-open"></i> @bo.VisitNum</span>
+                            </a>
+                        </li>
+                    }
+                    
                 </ul>
             </div>
 
