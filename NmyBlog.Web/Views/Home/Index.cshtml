@@ -50,9 +50,8 @@
                     </button>
 
                     <h1 class="logo hvr-bounce-in">
-                        <a href="#" title="纳米源博客">
-                            <img src="~/main/images/201610171329086541.png"
-                                 alt="纳米源博客">
+                        <a href="/Home" title="纳米源博客">
+                            <img src="~/main/images/nmy_logo.png" alt="纳米源博客" style="width: 160px; display: inline;">
                         </a>
                     </h1>
                 </div>
@@ -97,10 +96,10 @@
                             </a>
                         </div>
                     </div>
-                    <a class="left carousel-control" href="#focusslide" role="button" data-slide="prev" rel="nofollow">
+                    <a class="left carousel-control" href="#focusslide" role="button" data-slide="prev">
                         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">上一个</span>
                     </a>
-                    <a class="right carousel-control" href="#focusslide" role="button" data-slide="next" rel="nofollow">
+                    <a class="right carousel-control" href="#focusslide" role="button" data-slide="next">
                         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">下一个</span>
                     </a>
                 </div>
@@ -112,7 +111,14 @@
                             <span class="red">【推荐】</span><a target="_blank" href="#" title="@mo.Title">@mo.Title</a>
                         </h2>
                         <p class="note">
-                            @mo.Body
+                            @if (mo.Body.Length > 300)
+                            {
+                                @mo.Body.Substring(0, 300)
+                            }
+                            else
+                            {
+                                @mo.Body
+                            }
                         </p>
                     </article>
                 }
@@ -134,7 +140,7 @@
                     <article class="excerpt excerpt-1">
                         <a class="focus" href="#" title="@blog.Title" target="_blank">
                             <img class="thumb"
-                                 data-original="~/main/images/201610181739277776.jpg" src="~/main/images/201610181739277776.jpg"
+                                 data-original="~/main/images/nmy_main.jpg" src="~/main/images/nmy_main.jpg"
                                  alt="@blog.Title" style="display: inline;">
                         </a>
                         <header>
@@ -148,7 +154,14 @@
                             <span class="views"><i class="glyphicon glyphicon-eye-open"></i> @blog.VisitNum</span>
                         </p>
                         <p class="note">
-                            @blog.Body
+                            @if (blog.Body.Length > 250)
+                            {
+                                @blog.Body.Substring(0, 250)
+                            }
+                            else
+                            {
+                                @blog.Body
+                            }
                         </p>
                     </article>
                 }
@@ -166,9 +179,10 @@
                                data-toggle="tab">统计信息</a>
                         </li>
                         <li role="presentation">
-                            <a href="#contact" aria-controls="contact" role="tab" data-toggle="tab">联系站长</a>
+                            <a href="#contact" aria-controls="contact" role="tab" data-toggle="tab">联系我</a>
                         </li>
                     </ul>
+
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane contact active" id="notice">
                             <h2>
@@ -182,14 +196,7 @@
                         </div>
                         <div role="tabpanel" class="tab-pane contact" id="contact">
                             <h2>
-                                QQ:949862149
-                                <a href="" target="_blank" rel="nofollow" data-toggle="tooltip" data-placement="bottom" title=""
-                                   data-original-title="QQ:"></a>
-                            </h2>
-                            <h2>
-                                Email:weqan@qq.com
-                                <a href="#" target="_blank" data-toggle="tooltip" rel="nofollow" data-placement="bottom" title=""
-                                   data-original-title="#"></a>
+                                <img src="main/images/qrcode.png" style="width: 110px" />
                             </h2>
                         </div>
                     </div>
@@ -208,7 +215,6 @@
                 </div>
             </div>
 
-
             <div class="widget widget_hot">
                 <h3>猜你喜欢</h3>
                 <ul>
@@ -217,7 +223,7 @@
                         <li>
                             <a title="@bo.Title" href="#">
                                 <span class="thumbnail">
-                                    <img class="thumb" data-original="~/main/images/201610181739277776.jpg" src="~/main/images/201610181739277776.jpg"
+                                    <img class="thumb" data-original="~/main/images/nmy_main.jpg" src="~/main/images/nmy_main.jpg"
                                          alt="@bo.Title" style="display: block;">
                                 </span>
                                 <span class="text">@bo.Title</span>
@@ -226,15 +232,15 @@
                             </a>
                         </li>
                     }
-                    
+
                 </ul>
             </div>
-
 
             <div class="widget widget_sentence">
                 <h3>友情链接</h3>
                 <div class="widget-sentence-link">
-                    <a href="http://weqan.cn" title="一个视频学习网站" target="_blank">维千网</a>&nbsp;&nbsp;&nbsp;
+                    <a href="http://weqan.cn" title="一个视频学习网站" target="_blank">维千网</a> &nbsp;&nbsp;&nbsp;
+                    <a href="/Adnn1n" title="Adnn1n" target="_blank">Adnn1n</a>&nbsp;&nbsp;&nbsp;
                 </div>
             </div>
         </aside>

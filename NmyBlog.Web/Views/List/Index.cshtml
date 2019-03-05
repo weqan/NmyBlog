@@ -56,9 +56,8 @@
                     </button>
 
                     <h1 class="logo hvr-bounce-in">
-                        <a href="#" title="纳米源博客">
-                            <img src="~/main/images/201610171329086541.png"
-                                 alt="纳米源博客">
+                        <a href="/Home" title="纳米源博客">
+                            <img src="~/main/images/nmy_logo.png" alt="纳米源博客" style="width: 160px; display: inline;">
                         </a>
                     </h1>
                 </div>
@@ -104,7 +103,7 @@
                         <article class="excerpt excerpt-1">
                             <a class="focus" href="#" title="@blog.Title" target="_blank">
                                 <img class="thumb"
-                                     data-original="~/main/images/201610181739277776.jpg" src="~/main/images/201610181739277776.jpg"
+                                     data-original="~/main/images/nmy_main.jpg" src="~/main/images/nmy_main.jpg"
                                      alt="@blog.Title" style="display: inline;">
                             </a>
                             <header>
@@ -118,7 +117,14 @@
                                 <span class="views"><i class="glyphicon glyphicon-eye-open"></i> @blog.VisitNum</span>
                             </p>
                             <p class="note">
-                                @blog.Body
+                                @if (blog.Body.Length > 250)
+                                {
+                                    @blog.Body.Substring(0, 250)
+                                }
+                                else
+                                {
+                                    @blog.Body
+                                }
                             </p>
                         </article>
                     }
@@ -154,7 +160,7 @@
                         <li>
                             <a title="@bo.Title" href="#">
                                 <span class="thumbnail">
-                                    <img class="thumb" data-original="~/main/images/201610181739277776.jpg" src="~/main/images/201610181739277776.jpg"
+                                    <img class="thumb" data-original="~/main/images/nmy_main.jpg" src="~/main/images/nmy_main.jpg"
                                          alt="@bo.Title" style="display: block;">
                                 </span>
                                 <span class="text">@bo.Title</span>
