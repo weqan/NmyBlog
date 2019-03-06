@@ -18,9 +18,11 @@ namespace NmyBlog.Web.Controllers
 
             ViewBag.bolist = bodal.GetTopList(4, " sort = 0 ORDER BY visitnum DESC");
 
-            ViewBag.calist = cadal.GetTopList(4," pbh = 0 ORDER BY caname");
+            ViewBag.calist = cadal.GetTopList(4, " pbh = 0 ORDER BY caname");
 
             return View(list);
         }
+
+
     }
 }

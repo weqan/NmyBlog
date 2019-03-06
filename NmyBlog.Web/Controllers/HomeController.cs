@@ -20,7 +20,7 @@ namespace NmyBlog.Web.Controllers
 
             ViewBag.bolist = bodal.GetTopList(4, " sort = 0 ORDER BY visitnum DESC");
 
-            ViewBag.bomodel = bodal.GetTopList(1, " sort = 0 ORDER BY createdate DESC");
+            ViewBag.bomodel = bodal.GetTopList(2, " sort = 0 ORDER BY createdate DESC");
 
             ViewBag.calist = cadal.GetTopList(4, " pbh = 0 ORDER BY caname");
 

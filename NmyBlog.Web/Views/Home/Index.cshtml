@@ -16,6 +16,7 @@
     <meta name="keywords" content="nmyuan">
     <meta name="description" content="nmyuan">
     <meta name="author" content="weqan">
+
     <link rel="stylesheet" type="text/css" href="~/main/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="~/main/css/nprogress.css">
     <link rel="stylesheet" type="text/css" href="~/main/css/style.css">
@@ -108,7 +109,7 @@
                 {
                     <article class="excerpt-minic excerpt-minic-index">
                         <h2>
-                            <span class="red">【推荐】</span><a target="_blank" href="#" title="@mo.Title">@mo.Title</a>
+                            <span class="red">【推荐】</span><a target="_blank" href="/Page?id=@mo.Id" title="@mo.Title">@mo.Title</a>
                         </h2>
                         <p class="note">
                             @if (mo.Body.Length > 300)
@@ -138,7 +139,7 @@
                 {
                     <!-- 1 -->
                     <article class="excerpt excerpt-1">
-                        <a class="focus" href="#" title="@blog.Title" target="_blank">
+                        <a class="focus" href="/Page?id=@blog.Id" title="@blog.Title" target="_blank">
                             <img class="thumb"
                                  data-original="~/main/images/nmy_main.jpg" src="~/main/images/nmy_main.jpg"
                                  alt="@blog.Title" style="display: inline;">
@@ -146,7 +147,7 @@
                         <header>
                             <a class="cat" href="#" title="@blog.CaName">@blog.CaName 主题<i></i></a>
                             <h2>
-                                <a href="#" title="@blog.Title" target="_blank">@blog.Title</a>
+                                <a href="/Page?id=@blog.Id" title="@blog.Title" target="_blank">@blog.Title</a>
                             </h2>
                         </header>
                         <p class="meta">
@@ -196,7 +197,7 @@
                         </div>
                         <div role="tabpanel" class="tab-pane contact" id="contact">
                             <h2>
-                                <img src="main/images/qrcode.png" style="width: 110px" />
+                                <img src="main/images/qrcode.png" style="width: 100px" />
                             </h2>
                         </div>
                     </div>
@@ -221,7 +222,7 @@
                     @foreach (NmyBlog.Model.Blog bo in ViewBag.bolist)
                     {
                         <li>
-                            <a title="@bo.Title" href="#">
+                            <a target="_blank" title="@bo.Title" href="/Page?id=@bo.Id">
                                 <span class="thumbnail">
                                     <img class="thumb" data-original="~/main/images/nmy_main.jpg" src="~/main/images/nmy_main.jpg"
                                          alt="@bo.Title" style="display: block;">
