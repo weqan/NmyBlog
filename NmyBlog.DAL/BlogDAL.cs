@@ -79,6 +79,26 @@ namespace NmyBlog.DAL
             }
         }
 
+        /// <summary>
+        /// GET RANDOM LIST
+        /// </summary>
+        /// <param name="cond"></param>
+        /// <returns></returns>
+        public List<Blog> GetTopRanList(int topnum, string cond)
+        {
+            using (var connection = ConnectionFactory.GetOpenConnection())
+            {
+                string sql = "SELECT TOP " + topnum + " *, NewID() AS random FROM Blog ORDER BY random";
+                if (!string.IsNullOrEmpty(cond))
+                {
+                    sql += $" WHERE {cond}";
+                }
+
+                var list = connection.Query<Blog>(sql).ToList();
+                return list;
+            }
+        }
+
 
         /// <summary>
         /// Get Model

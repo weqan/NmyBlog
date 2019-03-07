@@ -1,0 +1,164 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>很抱歉，您要找的页面不存在 - 纳米源</title>
+    <meta name="keywords" content="nmyuan">
+    <meta name="description" content="nmyuan">
+    <meta name="author" content="weqan">
+
+    <link rel="stylesheet" type="text/css" href="~/main/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/main/css/nprogress.css">
+    <link rel="stylesheet" type="text/css" href="~/main/css/style.css">
+    <link rel="stylesheet" type="text/css" href="~/main/css/font-awesome.min.css">
+
+    <link rel="apple-touch-icon-precomposed" href="~/main/images/yuan.ico">
+    <link rel="shortcut icon" href="~/main/images/yuan.ico">
+
+    <script src="~/main/js/jquery-2.1.4.min.js"></script>
+    <script src="~/main/js/nprogress.js"></script>
+    <script src="~/main/js/jquery.lazyload.min.js"></script>
+
+    <style type="text/css">
+        .panel {
+            padding: 80px 20px 0px;
+            min-height: 400px;
+            cursor: default;
+        }
+
+        .text-center {
+            margin: 0 auto;
+            text-align: center;
+            border-radius: 10px;
+            max-width: 900px;
+            -moz-box-shadow: 0px 0px 5px rgba(0,0,0,.3);
+            -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,.3);
+            box-shadow: 0px 0px 5px rgba(0,0,0,.1);
+        }
+
+        .float-left {
+            float: left !important;
+        }
+
+        .float-right {
+            float: right !important;
+        }
+
+        img {
+            border: 0;
+            vertical-align: bottom;
+        }
+
+        h2 {
+            padding-top: 20px;
+            font-size: 20px;
+        }
+
+        .padding-big {
+            padding: 20px;
+        }
+
+        .alert {
+            border-radius: 5px;
+            padding: 15px;
+            border: solid 1px #ddd;
+            background-color: #f5f5f5;
+        }
+    </style>
+
+
+</head>
+
+<body class="user-select single">
+    <header class="header">
+        <nav class="navbar navbar-default" id="navbar">
+            <div class="container">
+                <div class="header-topbar hidden-xs link-border">
+                    <ul class="site-nav topmenu">
+                        <li><a href="http://weqan.cn">维千网</a></li>
+                        <li>
+                            <a href="https://github.com/weqan" title="GitHub">
+                                <i class="fa fa-github">
+                                </i> 我的GitHub
+                            </a>
+                        </li>
+                    </ul>
+                    勤记录 懂分享
+                </div>
+                <div class="navbar-header">
+
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar"
+                            aria-expanded="false">
+                        <span class="sr-only"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <h1 class="logo hvr-bounce-in">
+                        <a href="/Home" title="纳米源博客">
+                            <img src="~/main/images/nmy_logo.png" alt="纳米源博客" style="width: 160px; display: inline;">
+                        </a>
+                    </h1>
+                </div>
+                <div class="collapse navbar-collapse" id="header-navbar">
+                    <form class="navbar-form visible-xs" action="/Search" method="post">
+                        <div class="input-group">
+                            <input type="text" name="keyword" class="form-control" placeholder="请输入关键字" maxlength="20"
+                                   autocomplete="off">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default btn-search" name="search" type="submit">搜索</button>
+                            </span>
+                        </div>
+                    </form>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a data-cont="纳米源" title="纳米源" href="/Home">首页</a></li>
+                        <li><a data-cont="我的文章" title="我的文章" href="/List">我的文章</a></li>
+                        <li><a data-cont="源码分享" title="源码分享" href="#">源码分享</a></li>
+                        <li><a data-cont="资讯分享" title="资讯分享" href="#">资讯分享</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="container">
+        <div class="panel">
+            <div class="text-center">
+                <h2><stong>404错误！很抱歉，您要找的页面不存在</stong></h2>
+                <div class="padding-big">
+                    <a href="/Home" class="btn btn-primary">返回首页</a>
+                </div>
+                @foreach (NmyBlog.Model.Blog bo in ViewBag.bolist)
+                {
+                <div class="padding-big">
+                    <a href="/Page?id=@bo.Id" title="@bo.Title">@bo.Title</a>
+                </div>
+                }
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Copyright &copy; 2019.Weqan</p>
+        </div>
+        <div id="gotop"><a class="gotop"></a></div>
+    </footer>
+    <script src="~/main/js/bootstrap.min.js"></script>
+    <script src="~/main/js/jquery.ias.js"></script>
+    <script src="~/main/js/scripts.js"></script>
+</body>
+</html>

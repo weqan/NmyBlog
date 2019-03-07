@@ -18,7 +18,7 @@ namespace NmyBlog.Web.Controllers
         {
             List<Blog> list = bodal.GetTopList(3," sort = 0 ORDER BY createdate DESC");
 
-            ViewBag.bolist = bodal.GetTopList(4, " sort = 0 ORDER BY visitnum DESC");
+            ViewBag.xhlist = bodal.GetTopRanList(4, "");
 
             ViewBag.bomodel = bodal.GetTopList(2, " sort = 0 ORDER BY createdate DESC");
 
