@@ -956,7 +956,7 @@ h5.left-nav-title {
 }
 
 .message-list a:hover {
-	background: #f3f3f380;
+	background: #f3f3f3;
 }
 
 .message-list span.photo {
@@ -1567,10 +1567,10 @@ h5.left-nav-title {
 
 .progress-animated {
   -webkit-animation-duration: 5s;
-  -webkit-animation-name: animationProgress;
+  /*-webkit-animation-name: animationProgress;*/
   -webkit-transition: 5s all;
   animation-duration: 5s;
-  animation-name: animationProgress;
+  /*animation-name: animationProgress;*/
   transition: 5s all;
 }
 
@@ -1684,7 +1684,7 @@ table.dataTable thead th, table.dataTable thead td {
 .icon-list-demo .col-md-4:hover i {
   -o-transform: scale(2);
   -webkit-transform: scale(2);
-  moz-transform: scale(2);
+  /*moz-transform: scale(2);*/
   transform: scale(2);
 }
 

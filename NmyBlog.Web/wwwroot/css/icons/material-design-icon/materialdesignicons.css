@@ -6991,14 +6991,14 @@
 .mdi-flip-horizontal {
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
-  filter: FlipH;
+  /*filter: FlipH;*/
   -ms-filter: "FlipH";
 }
 
 .mdi-flip-vertical {
   -webkit-transform: scaleY(-1);
   transform: scaleY(-1);
-  filter: FlipV;
+  /*filter: FlipV;*/
   -ms-filter: "FlipV";
 }
 

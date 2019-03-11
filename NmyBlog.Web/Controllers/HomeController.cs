@@ -16,7 +16,7 @@ namespace NmyBlog.Web.Controllers
         CategoryDAL cadal = new CategoryDAL();
         public IActionResult Index()
         {
-            List<Blog> list = bodal.GetTopList(3," sort = 0 ORDER BY createdate DESC");
+            List<Blog> list = bodal.GetTopList(3, " sort = 0 ORDER BY createdate DESC");
 
             ViewBag.xhlist = bodal.GetTopRanList(4, "");
 
@@ -25,15 +25,6 @@ namespace NmyBlog.Web.Controllers
             ViewBag.calist = cadal.GetTopList(4, " pbh = 0 ORDER BY caname");
 
             return View(list);
-        }
-
-
-
-
-
-        public IActionResult Privacy()
-        {
-            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
