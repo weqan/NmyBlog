@@ -1,0 +1,43 @@
+﻿@model NmyBlog.Model.Category
+<blockquote class="layui-elem-quote">添加标签 - 纳米源</blockquote>
+<div style="padding: 10px">
+
+    <form class="layui-form" method="post" action="">
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">标签名</label>
+            <div class="layui-input-block">
+                @Html.TextBoxFor(a => a.CaName, new { placeholder = "请输入标签名", @class = "layui-input" })
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">编号</label>
+            <div class="layui-input-block">
+                @Html.TextBoxFor(a => a.Bh, new { placeholder = "请输入编号", @class = "layui-input" })
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">父编号</label>
+            <div class="layui-input-block">
+                @Html.TextBoxFor(a => a.Pbh, new { placeholder = "请输入父编号", @class = "layui-input" })
+            </div>
+        </div>
+
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">备注</label>
+            <div class="layui-input-block">
+                @Html.TextAreaFor(a => a.Remark, new { placeholder = "请输入备注", @class = "layui-textarea" })
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" type="submit">立即提交</button>
+            </div>
+        </div>
+
+    </form>
+
+</div>
