@@ -9,6 +9,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.0" />
   </ItemGroup>
 
@@ -19,8 +20,6 @@
 
 
   <ItemGroup>
-    <Folder Include="Areas\Adnn1n\Data\" />
-    <Folder Include="Areas\Adnn1n\Models\" />
     <Folder Include="wwwroot\css\plugins\" />
   </ItemGroup>
 

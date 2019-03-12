@@ -9,7 +9,7 @@ using NmyBlog.Model;
 namespace NmyBlog.Web.Areas.Adnn1n.Controllers
 {
     [Area("Adnn1n")]
-    public class CategoryController : Controller
+    public class CategoryController : BaseController
     {
         CategoryDAL cadal = new CategoryDAL();
 

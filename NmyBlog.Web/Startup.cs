@@ -47,7 +47,9 @@ namespace NmyBlog.Web
             }
 
             app.UseStaticFiles();
-            app.UseCookiePolicy();
+            //app.UseCookiePolicy();
+
+            //app.UseSession();
 
             app.UseMvc(routes =>
             {

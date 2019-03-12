@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace NmyBlog.Web.Areas.Adnn1n.Controllers
 {
     [Area("Adnn1n")]
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         public IActionResult Index()
         {
