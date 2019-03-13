@@ -30,6 +30,13 @@ namespace NmyBlog.Web
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddDistributedMemoryCache();
+
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(30);
+                options.Cookie.HttpOnly = true;
+            });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
@@ -43,13 +50,13 @@ namespace NmyBlog.Web
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Fof");
             }
 
             app.UseStaticFiles();
-            //app.UseCookiePolicy();
+            app.UseCookiePolicy();
 
-            //app.UseSession();
+            app.UseSession();
 
             app.UseMvc(routes =>
             {

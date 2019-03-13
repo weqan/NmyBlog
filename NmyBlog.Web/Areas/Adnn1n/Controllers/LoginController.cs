@@ -28,10 +28,12 @@ namespace NmyBlog.Web.Areas.Adnn1n.Controllers
             Admin a = addal.Login(username, password);
             if (a == null)
             {
-                return Content("<script> alert('NmyLogin Error!'); location.href='/Adnn1n/Login'</script>", "text/html");
+                return Content("<script> alert('NmyLogin Error!哈哈哈'); location.href='/Adnn1n/Login'</script>", "text/html;charset=utf-8");
             }
+
             HttpContext.Session.SetInt32("adminid", a.Id);
             HttpContext.Session.SetString("adminusername", a.UserName);
+
             return Redirect("/Adnn1n/Home");
         }
     }

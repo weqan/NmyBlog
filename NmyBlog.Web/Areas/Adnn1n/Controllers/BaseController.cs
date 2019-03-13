@@ -13,7 +13,7 @@ namespace NmyBlog.Web.Areas.Adnn1n.Controllers
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            if (HttpContext.Session.GetString("adminusername") == null)
+            if (HttpContext.Session.GetInt32("adminid") == null)
             {
                 var con = new ContentResult();
 
