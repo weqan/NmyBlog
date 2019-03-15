@@ -1,27 +1,19 @@
-﻿@model NmyBlog.Model.Category
-<blockquote class="layui-elem-quote">添加标签</blockquote>
+﻿@model NmyBlog.Model.Admin
+<blockquote class="layui-elem-quote">添加管理员</blockquote>
 <div style="padding: 10px">
 
     <form class="layui-form" method="post" action="">
-
         <div class="layui-form-item">
-            <label class="layui-form-label">标签名</label>
+            <label class="layui-form-label">用户名</label>
             <div class="layui-input-block">
-                @Html.TextBoxFor(a => a.CaName, new { placeholder = "请输入标签名", @class = "layui-input" })
+                @Html.TextBoxFor(a => a.UserName, new { placeholder = "请输入用户名", @class = "layui-input" })
             </div>
         </div>
 
         <div class="layui-form-item">
-            <label class="layui-form-label">编号</label>
+            <label class="layui-form-label">密码</label>
             <div class="layui-input-block">
-                @Html.TextBoxFor(a => a.Bh, new { placeholder = "请输入编号", @class = "layui-input" })
-            </div>
-        </div>
-
-        <div class="layui-form-item">
-            <label class="layui-form-label">父编号</label>
-            <div class="layui-input-block">
-                @Html.TextBoxFor(a => a.Pbh, new { placeholder = "请输入父编号", @class = "layui-input" })
+                @Html.TextBoxFor(a => a.Password, new { placeholder = "请输入密码", @class = "layui-input" })
             </div>
         </div>
 

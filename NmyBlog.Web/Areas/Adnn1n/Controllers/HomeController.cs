@@ -18,6 +18,10 @@ namespace NmyBlog.Web.Areas.Adnn1n.Controllers
                 //末登录
                 return Redirect("/Adnn1n/Login/");
             }
+
+            string adminname = HttpContext.Session.GetString("adminusername");
+            ViewBag.username = adminname;
+
             return View();
         }
 
