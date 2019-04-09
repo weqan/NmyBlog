@@ -128,12 +128,12 @@ document.onkeydown = function(event) {
 		return false
 	}
 };
-try {
-	if (window.console && window.console.log) {
-		console.log("\n欢迎访问站长素材！\n\n");
-		console.log("\n请记住我们的网址：%c sc.chinaz.com", "color:red")
-	}
-} catch (e) {};
+//try {
+//	if (window.console && window.console.log) {
+//		console.log("\n欢迎访问站长素材！\n\n");
+//		console.log("\n请记住我们的网址：%c sc.chinaz.com", "color:red")
+//	}
+//} catch (e) {};
 
 function SiteSearch(send_url, divTgs) {
 	var str = $.trim($(divTgs).val());

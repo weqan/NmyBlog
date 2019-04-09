@@ -91,9 +91,10 @@
                 <header class="article-header">
                     <h1 class="article-title"><a href="#" title="@Model.Title">@Model.Title</a></h1>
                     <div class="article-meta">
-                        <span class="item article-meta-time"><time class="time" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="发表时间：@Model.CreateDate"><i class="glyphicon glyphicon-time"></i> @Model.CreateDate</time></span> 
+                        <span class="item article-meta-time"><time class="time" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="发表时间：@Model.CreateDate"><i class="glyphicon glyphicon-time"></i> @Model.CreateDate</time></span>
                         <span class="item article-meta-source" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="来源：纳米源博客"><i class="glyphicon glyphicon-globe"></i> 纳米源博客</span>
-                        <span class="item article-meta-category" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="@Model.CaName 主题"><i class="glyphicon glyphicon-list"></i><a href="#" title="@Model.CaName 主题"> @Model.CaName 主题</a>
+                        <span class="item article-meta-category" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="@Model.CaName 主题">
+                            <i class="glyphicon glyphicon-list"></i><a href="#" title="@Model.CaName 主题"> @Model.CaName 主题</a>
                         </span>
                         <span class="item article-meta-views" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="浏览量：@Model.VisitNum"><i class="glyphicon glyphicon-eye-open"></i> @Model.VisitNum</span>
                     </div>
@@ -168,7 +169,7 @@ public static double JieCheng(int number)
                             </a>
                         </li>
                     }
-                    
+
                 </ul>
             </div>
 
@@ -181,6 +182,9 @@ public static double JieCheng(int number)
         </div>
         <div id="gotop"><a class="gotop"></a></div>
     </footer>
+
+
+
     <script src="~/main/js/bootstrap.min.js"></script>
     <script src="~/main/js/jquery.ias.js"></script>
     <script src="~/main/js/scripts.js"></script>

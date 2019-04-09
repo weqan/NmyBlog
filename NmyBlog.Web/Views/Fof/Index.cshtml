@@ -142,9 +142,9 @@
                 </div>
                 @foreach (NmyBlog.Model.Blog bo in ViewBag.bolist)
                 {
-                <div class="padding-big">
-                    <a href="/Page?id=@bo.Id" title="@bo.Title">@bo.Title</a>
-                </div>
+                    <div class="padding-big">
+                        <a href="/Page?id=@bo.Id" title="@bo.Title">@bo.Title</a>
+                    </div>
                 }
 
             </div>
@@ -157,6 +157,8 @@
         </div>
         <div id="gotop"><a class="gotop"></a></div>
     </footer>
+
+
     <script src="~/main/js/bootstrap.min.js"></script>
     <script src="~/main/js/jquery.ias.js"></script>
     <script src="~/main/js/scripts.js"></script>
