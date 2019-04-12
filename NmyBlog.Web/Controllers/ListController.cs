@@ -12,9 +12,18 @@ namespace NmyBlog.Web.Controllers
     {
         BlogDAL bodal = new BlogDAL();
         CategoryDAL cadal = new CategoryDAL();
-        public IActionResult Index()
+        public IActionResult Index(string key)
         {
-            List<Blog> list = bodal.GetList(" sort = 0 ORDER BY createdate DESC");
+            List<Blog> list = null;
+            if (key == null)
+            {
+                list = bodal.GetList(" sort = 0 ORDER BY createdate DESC");
+            }
+            else
+            {
+                list = bodal.GetList(" title like '%" + key + "%' ORDER BY createdate DESC");
+            }
+
 
             ViewBag.djlist = bodal.GetTopRanList(4, "");
 
