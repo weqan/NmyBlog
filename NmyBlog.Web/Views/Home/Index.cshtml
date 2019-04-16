@@ -71,8 +71,8 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li><a data-cont="纳米源" title="纳米源" href="/Home">首页</a></li>
                         <li><a data-cont="我的文章" title="我的文章" href="/List">我的文章</a></li>
-                        <li><a data-cont="源码分享" title="源码分享" href="#">源码分享</a></li>
-                        <li><a data-cont="资讯分享" title="资讯分享" href="#">资讯分享</a></li>
+                        <li><a data-cont="源码分享" title="源码分享" href="/fof">源码分享</a></li>
+                        <li><a data-cont="资讯分享" title="资讯分享" href="/fof">资讯分享</a></li>
                     </ul>
                 </div>
             </div>
@@ -89,7 +89,7 @@
                     </ol>
                     <div class="carousel-inner" role="listbox">
                         <div class="item active">
-                            <a href="#" target="_blank" title="纳米源博客">
+                            <a href="" target="_blank" title="纳米源博客">
                                 <img src="~/main/images/201610181557196870.jpg" alt="纳米源博客" class="img-responsive">
                             </a>
                         </div>
@@ -169,7 +169,6 @@
                     </article>
                 }
 
-
             </div>
         </div>
 
@@ -189,12 +188,11 @@
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane contact active" id="notice">
                             <h2>
-                                日志总数:
-                                888篇
+                                日志总数: @ViewBag.blogcounts 篇
                             </h2>
                             <h2>
-                                网站运行:
-                                <span id="sitetime">88天 </span>
+                                网站运行:@ViewBag.rundays 天
+                                <span id="sitetime"></span>
                             </h2>
                         </div>
                         <div role="tabpanel" class="tab-pane contact" id="contact">
@@ -217,11 +215,6 @@
                     </div>
 
                 </div>
-                
-                @*<div class="layui-form-item">
-                            <input type="text" name="key" id="search_key" required lay-verify="required" placeholder="查询关键字" autocomplete="off" class="layui-input" style="width:60%;float: left;">
-                            <button class="layui-btn" onclick="search()"><i class="layui-icon">&#xe615;</i>查询</button>
-                        </div>*@
 
             </div>
 
@@ -269,6 +262,7 @@
     <script src="~/main/js/scripts.js"></script>
 
     <script>
+
         /*查询*/
         function search() {
             var key = $('#search_key').val();

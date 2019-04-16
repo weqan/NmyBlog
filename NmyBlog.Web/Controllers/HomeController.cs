@@ -14,6 +14,9 @@ namespace NmyBlog.Web.Controllers
     {
         BlogDAL bodal = new BlogDAL();
         CategoryDAL cadal = new CategoryDAL();
+
+
+
         public IActionResult Index()
         {
             List<Blog> list = bodal.GetTopList(3, " sort = 0 ORDER BY createdate DESC");
@@ -24,15 +27,16 @@ namespace NmyBlog.Web.Controllers
 
             ViewBag.calist = cadal.GetTopList(4, " pbh = 0 ORDER BY caname");
 
+            DateTime time1 = DateTime.Today;
+            DateTime time2 = new DateTime(2019 / 1 / 2);
+            TimeSpan ts = time1 - time2;
+            string timespan = ts.ToString();
+
+            ViewBag.rundays = timespan;
+            ViewBag.blogcounts = bodal.BlogCounts();
+
             return View(list);
         }
 
-
-
-        //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        //public IActionResult Error()
-        //{
-        //    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        //}
     }
 }

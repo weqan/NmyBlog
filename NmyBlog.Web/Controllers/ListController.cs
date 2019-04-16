@@ -12,6 +12,7 @@ namespace NmyBlog.Web.Controllers
     {
         BlogDAL bodal = new BlogDAL();
         CategoryDAL cadal = new CategoryDAL();
+
         public IActionResult Index(string key)
         {
             List<Blog> list = null;

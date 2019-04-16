@@ -136,5 +136,15 @@ namespace NmyBlog.DAL
                 return false;
             }
         }
+
+        public int BlogCounts()
+        {
+            using (var connection = ConnectionFactory.GetOpenConnection())
+            {
+                int res = connection.ExecuteScalar<int>(@"select COUNT(*) from blog");
+               
+                return res;
+            }
+        }
     }
 }
