@@ -12,7 +12,7 @@ namespace NmyBlog.DAL
         /// <summary>
         /// 数据库连接字符串，从web层传入
         /// </summary>
-        public string ConnStr { get; set; }
+        //public string ConnStr { get; set; }
 
 
 
@@ -22,7 +22,7 @@ namespace NmyBlog.DAL
         /// <returns></returns>
         public int Insert(Blog bo)
         {
-            using (var connection = ConnectionFactory.GetOpenConnection(ConnStr))
+            using (var connection = ConnectionFactory.GetOpenConnection())
             {
                 int resid = connection.Query<int>(@"INSERT INTO Blog(Title,Body,Body_md,VisitNum,CaBh,CaName,Remark,Sort) values(@Title,@Body,@Body_md,@VisitNum,@CaBh,@CaName,@Remark,@Sort);SELECT @@IDENTITY;", bo).FirstOrDefault();
                 return resid;
@@ -35,7 +35,7 @@ namespace NmyBlog.DAL
         /// <param name="id"></param>
         public bool Delete(int id)
         {
-            using (var connection = ConnectionFactory.GetOpenConnection(ConnStr))
+            using (var connection = ConnectionFactory.GetOpenConnection())
             {
                 int res = connection.Execute(@"DELETE FROM Blog WHERE Id=@Id", new { Id = id });
                 if (res > 0)
@@ -53,7 +53,7 @@ namespace NmyBlog.DAL
         /// <returns></returns>
         public List<Blog> GetList(string cond)
         {
-            using (var connection = ConnectionFactory.GetOpenConnection(ConnStr))
+            using (var connection = ConnectionFactory.GetOpenConnection())
             {
                 string sql = "SELECT * FROM Blog";
                 if (!string.IsNullOrEmpty(cond))
@@ -73,7 +73,7 @@ namespace NmyBlog.DAL
         /// <returns></returns>
         public List<Blog> GetTopList(int topnum, string cond)
         {
-            using (var connection = ConnectionFactory.GetOpenConnection(ConnStr))
+            using (var connection = ConnectionFactory.GetOpenConnection())
             {
                 string sql = "SELECT TOP " + topnum + " * FROM Blog";
                 if (!string.IsNullOrEmpty(cond))
@@ -93,7 +93,7 @@ namespace NmyBlog.DAL
         /// <returns></returns>
         public List<Blog> GetTopRanList(int topnum, string cond)
         {
-            using (var connection = ConnectionFactory.GetOpenConnection(ConnStr))
+            using (var connection = ConnectionFactory.GetOpenConnection())
             {
                 string sql = "SELECT TOP " + topnum + " *, NewID() AS random FROM Blog ORDER BY random";
                 if (!string.IsNullOrEmpty(cond))
@@ -114,7 +114,7 @@ namespace NmyBlog.DAL
         /// <returns></returns>
         public Blog GetModel(int id)
         {
-            using (var connection = ConnectionFactory.GetOpenConnection(ConnStr))
+            using (var connection = ConnectionFactory.GetOpenConnection())
             {
                 var m = connection.Query<Blog>(@"SELECT * FROM Blog WHERE Id=@Id", new { Id = id }).FirstOrDefault();
 
@@ -131,7 +131,7 @@ namespace NmyBlog.DAL
         /// <returns></returns>
         public bool Update(Blog bo)
         {
-            using (var connection = ConnectionFactory.GetOpenConnection(ConnStr))
+            using (var connection = ConnectionFactory.GetOpenConnection())
             {
                 int res = connection.Execute(@"UPDATE Blog SET Title=@Title,Body=@Body,Body_md=@Body_md,VisitNum=@VisitNum,CaBh=@CaBh,CaName=@CaName,Remark=@Remark,Sort=@Sort WHERE Id=@Id", bo);
 
@@ -146,7 +146,7 @@ namespace NmyBlog.DAL
 
         public int BlogCounts()
         {
-            using (var connection = ConnectionFactory.GetOpenConnection(ConnStr))
+            using (var connection = ConnectionFactory.GetOpenConnection())
             {
                 int res = connection.ExecuteScalar<int>(@"select COUNT(*) from blog");
 

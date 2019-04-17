@@ -8,28 +8,29 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using NmyBlog.DAL;
 
 namespace NmyBlog.Web
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
+        //public Startup(IConfiguration configuration)
+        //{
+        //    Configuration = configuration;
+        //}
 
-        public IConfiguration Configuration { get; }
+        //public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //取出appsettings.json中的数据库连接字符串
-            string connStr = Configuration.GetSection("ConnStr").Value;
+            ////取出appsettings.json中的数据库连接字符串
+            //string connStr = Configuration.GetSection("ConnStr").Value;
 
-            //注入
-            services.AddSingleton<DAL.AdminDAL>(new DAL.AdminDAL() { ConnStr = connStr });
-            services.AddSingleton<DAL.BlogDAL>(new DAL.BlogDAL() { ConnStr = connStr });
-            services.AddSingleton<DAL.CategoryDAL>(new DAL.CategoryDAL() { ConnStr = connStr });
+            ////注入
+            //services.AddSingleton<AdminDAL>(new AdminDAL() { ConnStr = connStr });
+            //services.AddSingleton<BlogDAL>(new BlogDAL() { ConnStr = connStr });
+            //services.AddSingleton<CategoryDAL>(new CategoryDAL() { ConnStr = connStr });
 
 
 
