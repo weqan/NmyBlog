@@ -10,6 +10,11 @@ namespace NmyBlog.DAL
     public class AdminDAL
     {
         /// <summary>
+        /// 数据库连接字符串，从web层传入
+        /// </summary>
+        public string ConnStr { get; set; }
+
+        /// <summary>
         /// 登录
         /// </summary>
         /// <param name="username"></param>
@@ -18,7 +23,7 @@ namespace NmyBlog.DAL
         public Admin Login(string username, string password)
         {
             string sql = "select * from admin where username=@username and password=@password";
-            using (var connection = ConnectionFactory.GetOpenConnection())
+            using (var connection = ConnectionFactory.GetOpenConnection(ConnStr))
             {
                 Admin m = connection.Query<Admin>(sql, new { username = username, password = password }).FirstOrDefault();
                 return m;
@@ -32,7 +37,7 @@ namespace NmyBlog.DAL
         /// <returns></returns>
         public int Insert(Admin ad)
         {
-            using (var connection = ConnectionFactory.GetOpenConnection())
+            using (var connection = ConnectionFactory.GetOpenConnection(ConnStr))
             {
                 int resid = connection.Query<int>(@"INSERT INTO Admin(username,password,remark) values(@username,@password,@remark);SELECT @@IDENTITY;", ad).FirstOrDefault();
                 return resid;
@@ -45,7 +50,7 @@ namespace NmyBlog.DAL
         /// <param name="id"></param>
         public bool Delete(int id)
         {
-            using (var connection = ConnectionFactory.GetOpenConnection())
+            using (var connection = ConnectionFactory.GetOpenConnection(ConnStr))
             {
                 int res = connection.Execute(@"DELETE FROM Admin WHERE Id=@Id", new { Id = id });
                 if (res > 0)
@@ -63,7 +68,7 @@ namespace NmyBlog.DAL
         /// <returns></returns>
         public List<Admin> GetList(string cond)
         {
-            using (var connection = ConnectionFactory.GetOpenConnection())
+            using (var connection = ConnectionFactory.GetOpenConnection(ConnStr))
             {
                 string sql = "SELECT * FROM Admin";
                 if (!string.IsNullOrEmpty(cond))
@@ -83,7 +88,7 @@ namespace NmyBlog.DAL
         /// <returns></returns>
         public List<Admin> GetTopList(int topnum, string cond)
         {
-            using (var connection = ConnectionFactory.GetOpenConnection())
+            using (var connection = ConnectionFactory.GetOpenConnection(ConnStr))
             {
                 string sql = "SELECT TOP " + topnum + " * FROM Admin";
                 if (!string.IsNullOrEmpty(cond))
@@ -103,7 +108,7 @@ namespace NmyBlog.DAL
         /// <returns></returns>
         public List<Admin> GetTopRanList(int topnum, string cond)
         {
-            using (var connection = ConnectionFactory.GetOpenConnection())
+            using (var connection = ConnectionFactory.GetOpenConnection(ConnStr))
             {
                 string sql = "SELECT TOP " + topnum + " *, NewID() AS random FROM Admin ORDER BY random";
                 if (!string.IsNullOrEmpty(cond))
@@ -124,7 +129,7 @@ namespace NmyBlog.DAL
         /// <returns></returns>
         public Admin GetModel(int id)
         {
-            using (var connection = ConnectionFactory.GetOpenConnection())
+            using (var connection = ConnectionFactory.GetOpenConnection(ConnStr))
             {
                 var m = connection.Query<Admin>(@"SELECT * FROM Admin WHERE Id=@Id", new { Id = id }).FirstOrDefault();
 
@@ -141,7 +146,7 @@ namespace NmyBlog.DAL
         /// <returns></returns>
         public bool Update(Admin bo)
         {
-            using (var connection = ConnectionFactory.GetOpenConnection())
+            using (var connection = ConnectionFactory.GetOpenConnection(ConnStr))
             {
                 int res = connection.Execute(@"UPDATE Admin SET username=@username,password=@password,remark=@remark WHERE id=@id", bo);
 

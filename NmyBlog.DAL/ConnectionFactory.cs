@@ -11,12 +11,15 @@ namespace NmyBlog.DAL
     /// </summary>
     public class ConnectionFactory
     {
-        public static DbConnection GetOpenConnection()
+        public static DbConnection GetOpenConnection(string connStr)
         {
-            var connection = new SqlConnection(@"Data Source=.;Initial Catalog=NMY_DB;User ID=sa;Password=sa");
+            //"ConnStr": "server=39.108.85.11;user id=root;password=Lsb@1972;database=nmyuan",
+            //var connection = new SqlConnection(@"Data Source=39.108.85.11;Initial Catalog=nmyuan;User ID=root;Password=Lsb@1972");
+
+            var connection = new MySql.Data.MySqlClient.MySqlConnection(connStr);
 
             connection.Open();
-
+            
             return connection;
         }
 

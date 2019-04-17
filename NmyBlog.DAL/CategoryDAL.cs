@@ -12,13 +12,21 @@ namespace NmyBlog.DAL
     /// </summary>
     public class CategoryDAL
     {
+
+        /// <summary>
+        /// 数据库连接字符串，从web层传入
+        /// </summary>
+        public string ConnStr { get; set; }
+        /// <summary>
+
+
         /// <summary>
         /// INSEERT
         /// </summary>
         /// <returns></returns>
         public int Insert(Category ca)
         {
-            using (var connection = ConnectionFactory.GetOpenConnection())
+            using (var connection = ConnectionFactory.GetOpenConnection(ConnStr))
             {
                 int resid = connection.Query<int>(@"INSERT INTO Category(CaName,Bh,Pbh,Remark) values(@CaName,@Bh,@Pbh,@Remark);SELECT @@IDENTITY;", ca).FirstOrDefault();
                 return resid;
@@ -31,7 +39,7 @@ namespace NmyBlog.DAL
         /// <param name="id"></param>
         public bool Delete(int id)
         {
-            using (var connection = ConnectionFactory.GetOpenConnection())
+            using (var connection = ConnectionFactory.GetOpenConnection(ConnStr))
             {
                int res=  connection.Execute(@"DELETE FROM Category WHERE Id=@Id", new {Id = id});
                if (res>0)
@@ -49,7 +57,7 @@ namespace NmyBlog.DAL
         /// <returns></returns>
         public List<Category> GetList(string cond)
         {
-            using (var connection = ConnectionFactory.GetOpenConnection())
+            using (var connection = ConnectionFactory.GetOpenConnection(ConnStr))
             {
                 string sql = "SELECT * FROM Category";
                 if (!string.IsNullOrEmpty(cond))
@@ -69,7 +77,7 @@ namespace NmyBlog.DAL
         /// <returns></returns>
         public List<Category> GetTopList(int topnum, string cond)
         {
-            using (var connection = ConnectionFactory.GetOpenConnection())
+            using (var connection = ConnectionFactory.GetOpenConnection(ConnStr))
             {
                 string sql = "SELECT TOP " + topnum + " * FROM Category";
                 if (!string.IsNullOrEmpty(cond))
@@ -90,7 +98,7 @@ namespace NmyBlog.DAL
         /// <returns></returns>
         public Category GetModel(int id)
         {
-            using (var connection = ConnectionFactory.GetOpenConnection())
+            using (var connection = ConnectionFactory.GetOpenConnection(ConnStr))
             {
               var m =  connection.Query<Category>(@"SELECT * FROM Category WHERE Id=@Id",new {Id=id}).FirstOrDefault();
 
@@ -105,7 +113,7 @@ namespace NmyBlog.DAL
         /// <returns></returns>
         public Category GetModelByBh(string cabh)
         {
-            using (var connection = ConnectionFactory.GetOpenConnection())
+            using (var connection = ConnectionFactory.GetOpenConnection(ConnStr))
             {
                 var m = connection.Query<Category>(@"SELECT * FROM Category WHERE bh=@bh", new { bh = cabh }).FirstOrDefault();
 
@@ -120,7 +128,7 @@ namespace NmyBlog.DAL
         /// <returns></returns>
         public bool Update(Category ca)
         {
-            using (var connection = ConnectionFactory.GetOpenConnection())
+            using (var connection = ConnectionFactory.GetOpenConnection(ConnStr))
             {
                 int res = connection.Execute(@"UPDATE Category SET CaName=@CaName,Bh=@Bh,Pbh=@Pbh,Remark=@Remark WHERE Id=@Id",ca);
 

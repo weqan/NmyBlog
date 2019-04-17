@@ -27,12 +27,12 @@ namespace NmyBlog.Web.Controllers
 
             ViewBag.calist = cadal.GetTopList(4, " pbh = 0 ORDER BY caname");
 
-            DateTime time1 = DateTime.Today;
-            DateTime time2 = new DateTime(2019 / 1 / 2);
-            TimeSpan ts = time1 - time2;
-            string timespan = ts.ToString();
+           //DateTime time1 = DateTime.Today;
+            //DateTime time2 = new DateTime(2019 / 1 / 2);
+            //TimeSpan ts = time1 - time2;
+            //string timespan = (time1 - time2).ToString();
 
-            ViewBag.rundays = timespan;
+            //ViewBag.rundays = timespan;
             ViewBag.blogcounts = bodal.BlogCounts();
 
             return View(list);

@@ -23,6 +23,16 @@ namespace NmyBlog.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //取出appsettings.json中的数据库连接字符串
+            string connStr = Configuration.GetSection("ConnStr").Value;
+
+            //注入
+            services.AddSingleton<DAL.AdminDAL>(new DAL.AdminDAL() { ConnStr = connStr });
+            services.AddSingleton<DAL.BlogDAL>(new DAL.BlogDAL() { ConnStr = connStr });
+            services.AddSingleton<DAL.CategoryDAL>(new DAL.CategoryDAL() { ConnStr = connStr });
+
+
+
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
